@@ -23,4 +23,6 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls')),
+#    url('^markdown/', include( 'django_markdown.urls')),
+
 ]
