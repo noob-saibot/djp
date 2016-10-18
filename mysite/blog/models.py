@@ -8,6 +8,9 @@ class Post(models.Model):
     datetime = models.DateTimeField(u'Date')
     content = models.TextField(max_length=10000)
 
+    def __str__(self):
+        return self.title
+
     def __unicode__(self):
         return self.title
 
