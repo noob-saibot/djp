@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'blog',
     'disqus',
     'django.contrib.sites',
-    #'django_markdown',
-    'imagekit',
 ]
 
 MIDDLEWARE = [
