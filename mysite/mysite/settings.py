@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'ckeditor',
     'ckeditor_uploader',
+    'jquery',
 ]
 
 MIDDLEWARE = [
@@ -144,13 +145,16 @@ STATICFILES_DIRS = (
 
 #Media
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
 
 #Redactor
-REDACTOR_OPTIONS = {'lang': 'ru'}
-REDACTOR_UPLOAD = 'uploads/'
+#REDACTOR_OPTIONS = {'lang': 'ru'}
+#REDACTOR_UPLOAD = 'uploads/'
 
 #CKeditor
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = PIL
