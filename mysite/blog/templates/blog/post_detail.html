@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+{% if not post.is_draft %}
     <p>{{ post.datetime }}</p>
     <h2>{{ post.title }}</h2>
     <p>{{post.content|safe}}</p>
@@ -8,6 +9,8 @@
     {% disqus_dev %}
     {% disqus_show_comments %}
 </p>
-
+{% else %}
+<h1>Page not found</h1>
+{% endif %}
 {% endblock %}
 

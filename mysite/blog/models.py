@@ -7,7 +7,7 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=255)
     datetime = models.DateTimeField(u'Date')
-    #content = models.TextField(max_length=10000)
+    is_draft = models.BooleanField()
     content = RichTextUploadingField(blank=True, default='', config_name='default')
 
     def __str__(self):
