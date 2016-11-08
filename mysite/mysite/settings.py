@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'jquery',
+    'highcharts',
 ]
 
 MIDDLEWARE = [

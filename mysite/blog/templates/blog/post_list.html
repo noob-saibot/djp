@@ -4,7 +4,7 @@
         {% if not post.is_draft %}
             <p>{{ post.datetime }}</p>
             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-            <p>{{post.content|safe}}</p>
+            <p>{{post.content | truncatewords_html:50 | safe}}</p>
         {% endif %}
     {% empty %}
     <p>Нет постов</p>
