@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import *
 from django.conf.urls.static import static
 from django.conf import settings
+#from graphs.py import BarView
 
 ######
 # Redirect

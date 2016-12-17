@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'jquery',
     'highcharts',
+    'latexify',
 ]
 
 MIDDLEWARE = [
@@ -162,5 +163,10 @@ CKEDITOR_IMAGE_BACKEND = PIL
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
+        # 'extraPlugins': ['eqneditor',]
+        'extraPlugins': ','.join(
+            [
+                'eqneditor',
+            ]),
     },
 }
