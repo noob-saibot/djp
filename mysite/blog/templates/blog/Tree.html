@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"><head>
+        <meta charset="utf-8">
+	    <title>Tree</title>
+	    <link rel="stylesheet" href={% static "Tree/style.css" %}>
+	    <link rel="stylesheet" href={% static "Tree/svg.css" %}> 
+	</head>
+	<body>
+		<div id="chart">
+			<svg>
+			</svg>
+		</div>
+		<button class="regenerate">Regenerate</button>
+		<!--<script src="Tree/d3.js"></script>-->
+		<script src={% static "Tree/d3.v3.min.js" %}></script>
+		<script src={% static "Tree/main.js" %}></script>
+</body></html>
