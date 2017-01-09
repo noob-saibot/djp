@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'jquery',
     'highcharts',
-    'latexify',
 ]
 
 MIDDLEWARE = [
@@ -131,8 +130,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Disqus
-DISQUS_API_KEY = 'pmkA3CvbF2DUuIEpgQcBWDIgPnvY2CrkyXq5KO8NjyO1AqnVPeDo54d5f49NWO'
-DISQUS_WEBSITE_SHORTNAME = 'kxekxeherokuappcom'
+DISQUS_API_KEY = 'lQ0iiE2a34YIVrbJWNksUprKZebe8D95S9EWFRNgJloTT7nzAGLrJ6W0uxS0UnBJ'
+DISQUS_WEBSITE_SHORTNAME = 'memorialab-info'
 
 #Site id
 SITE_ID = 1
