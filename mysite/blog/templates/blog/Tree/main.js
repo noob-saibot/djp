@@ -4,10 +4,10 @@
 // Tree configuration
 var branches = [];
 var seed = {i: 0, x: 420, y: 600, a: 0, l: 130, d:0}; // a = angle, l = length, d = depth
-var da = 0.4; // Angle delta
+var da = 0.5; // Angle delta
 var dl = 0.82; // Length delta (factor)
 var ar = 0.7; // Randomness
-var maxDepth = 10;
+var maxDepth = 8;
 
 
 // Tree creation functions
@@ -85,12 +85,19 @@ function create() {
 		.attr('x2', x2)
 		.attr('y2', y2)
 		.style('stroke-width', function(d) {return parseInt(maxDepth + 1 - d.d) + 'px';})
+		.style('stroke-linecap','round')
 		.attr('id', function(d) {return 'id-'+d.i;})
-		.on('mouseover', highlightParents)
-		.on('mouseout', highlightParents);
+		//.on('mouseover', highlightParents)
+		//.on('mouseout', highlightParents);
+	d3.select('svg')
+		.select('text')
+		.data('1231231')
+		.enter()
+		.append('text')
 }
 
 function update() {
+	var colour = d3.event.type === 'mouseover' ? '#2f4f4f' : '#837da2';
 	d3.select('svg')
 		.selectAll('line')
 		.data(branches)
@@ -98,10 +105,75 @@ function update() {
 		.attr('x1', x1)
 		.attr('y1', y1)
 		.attr('x2', x2)
-		.attr('y2', y2);
+		.attr('y2', y2)
+		.style('stroke', colour)
+		.style('stroke-width', function(d) {return parseInt(maxDepth + 1 - d.d) + 'px';})
+		.style('stroke-linecap','round')
+		.attr('id', function(d) {return 'id-'+d.i;})
 }
 
-d3.selectAll('.regenerate')
-	.on('click', regenerate);
+d3.selection.prototype.moveToFront = function() {  
+      return this.each(function(){
+        this.parentNode.appendChild(this);
+      });
+    };
+
+function work_on(a)
+{
+	d3.select('#id-'+a.i).moveToFront();
+	d3.select('#id-'+a.i).transition().delay(500).duration(2000).style('stroke', '#8e0910');
+	d3.select('#id-'+a.i).transition().delay(7000).duration(1000).style('stroke', '#837da2');
+}
+
+function inputOfTree()
+{
+	var outputArr = []
+	for (var i=0, t=40; i<t; i++) 
+	{
+		if (Math.round(Math.random()) == 1) 
+		{
+    		outputArr.push(Math.round(Math.random() * t));
+    	}
+	}
+	d3.select('.text').text('{'+outputArr+'}')
+	d3.select('.text').transition().duration(1000).style('color', 'black');
+	d3.select('.text').transition().delay(1000).duration(8000).style('color', 'white');
+}
+
+function path(depth) {
+	var random_list = [];
+	var tempArray = [];
+	for(var j = 0; j < branches.length; j++)
+	{
+		if (branches[j].d == maxDepth)
+		{
+			random_list.push(branches[j].i);
+		}
+	}
+
+	var d = random_list[Math.floor(Math.random()*random_list.length)];
+
+	for(var i = 0; i <= maxDepth; i++)
+	{
+		tempArray.push(branches[d]);
+		d = branches[d].parent;
+	}
+
+	tempArray.reverse();
+
+	inputOfTree()
+	for(var i = 0; i < tempArray.length; i++)
+	{
+		setTimeout(work_on, 700*i, tempArray[i]);					
+	}
+	setTimeout(path, 10000, depth);
+	
+}
+
+//d3.selectAll('.regenerate')
+//	.on('click', regenerate);
 
 regenerate(true);
+path(maxDepth);
+
+
