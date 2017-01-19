@@ -121,8 +121,12 @@ d3.selection.prototype.moveToFront = function() {
 function work_on(a)
 {
 	d3.select('#id-'+a.i).moveToFront();
-	d3.select('#id-'+a.i).transition().delay(500).duration(2000).style('stroke', '#8e0910');
-	d3.select('#id-'+a.i).transition().delay(7000).duration(1000).style('stroke', '#837da2');
+	d3.select('#id-'+a.i).transition().delay(500).duration(2000)
+									.style('stroke', '#8e0910')
+									.style('stroke-width', function(a) {return parseInt(maxDepth + 3 - a.d) + 'px';});
+	d3.select('#id-'+a.i).transition().delay(7000).duration(1000)
+									.style('stroke', '#837da2')
+									.style('stroke-width', function(a) {return parseInt(maxDepth + 1 - a.d) + 'px';});
 }
 
 function inputOfTree()

@@ -166,6 +166,7 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(
             [
                 'eqneditor',
+                'spoiler',
             ]),
     },
 }

@@ -10,4 +10,4 @@ class PostDetailView(DetailView):
     model = Post
 
 class Tree(TemplateView):
-    template_name = "D3 Tree.html"
+    template_name = "Tree.html"

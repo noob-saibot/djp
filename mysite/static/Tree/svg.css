@@ -11,5 +11,6 @@ path, line {
 
 .text {
 	text-align: center;
-	position: relative;
+	width: 840px;
+	height: 600px;
 }
