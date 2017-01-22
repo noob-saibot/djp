@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
+from tastypie.utils.timezone import now
+from django.utils.text import slugify
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255)

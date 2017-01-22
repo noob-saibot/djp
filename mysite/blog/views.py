@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from blog.models import Post
 from django.views.generic import ListView, DetailView
+from django.http import HttpResponse, JsonResponse
+from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+import blog.test as t
 
 class PostsListView(ListView):
     model = Post
@@ -11,3 +15,13 @@ class PostDetailView(DetailView):
 
 class Tree(TemplateView):
     template_name = "Tree.html"
+
+def Notes(request):
+    if request.method == "GET":
+        id = request.GET.get('id')
+        l = t.Inform(Post.objects.get(pk=id).content)
+        try:
+            #return JsonResponse({'%s'%str(Post.objects.get(pk=id).content):'bar'})
+            return JsonResponse({'%s'%str(l.links()):'bar'})
+        except:
+            pass
