@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView
 from django.http import HttpResponse, JsonResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_exempt
 import blog.test as t
 
 class PostsListView(ListView):
@@ -16,6 +18,8 @@ class PostDetailView(DetailView):
 class Tree(TemplateView):
     template_name = "Tree.html"
 
+@never_cache
+@csrf_exempt
 def Notes(request):
     if request.method == "GET":
         id = request.GET.get('id')
