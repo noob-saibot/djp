@@ -289,7 +289,7 @@ a:focus {
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 95%;
+  width: 70%;
 }
 
 .span12 {
@@ -305,7 +305,7 @@ a:focus {
 }
 
 .span9 {
-  width: 70%px;
+  width: 700px;
 }
 
 .span8 {
@@ -333,15 +333,7 @@ a:focus {
 }
 
 .span2 {
-  width: 20%;
-  text-align: center;
-}
-
-.span2_add {
- width: 20%;
- position: fixed;
- float: right;
- text-align: right;
+  width: 140px;
 }
 
 .span1 {
