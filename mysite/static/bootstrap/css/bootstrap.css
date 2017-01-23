@@ -305,7 +305,7 @@ a:focus {
 }
 
 .span9 {
-  width: 70%px;
+  width: 70%;
 }
 
 .span8 {
@@ -334,7 +334,7 @@ a:focus {
 
 .span2 {
   width: 20%;
-  text-align: center;
+  text-align: left;
 }
 
 .span2_add {

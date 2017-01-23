@@ -7,7 +7,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
-import blog.test as t
+import blog.wiki_parser as wiki
 
 class PostsListView(ListView):
     model = Post
@@ -23,9 +23,9 @@ class Tree(TemplateView):
 def Notes(request):
     if request.method == "GET":
         id = request.GET.get('id')
-        l = t.Inform(Post.objects.get(pk=id).content)
+        W = wiki.Inform(Post.objects.get(pk=id).content)
         try:
             #return JsonResponse({'%s'%str(Post.objects.get(pk=id).content):'bar'})
-            return JsonResponse({'%s'%str(l.links()):'bar'})
+            return JsonResponse(W.links())
         except:
             pass
