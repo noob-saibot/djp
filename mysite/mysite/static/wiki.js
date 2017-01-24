@@ -11,12 +11,12 @@ else {return ""}
 }
 
 function notes(dict) {
-  var tmp = 0;
-  for (var key in dict) {
-    value = dict[key];
-    var x = document.getElementsByClassName('affix')[0];
-    setTimeout(function(set){x.innerHTML = set}, tmp, value);
-    tmp += 3000
+var tmp = 0
+for(var key in dict) {
+  var value = dict[key];
+  var x = document.getElementsByClassName('affix')[0];
+  setTimeout(function (val) { x.innerHTML = val; }, tmp, value);
+  tmp += 3000
                      }
-                    }
+}
 
