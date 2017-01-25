@@ -1,7 +1,3 @@
-var dct, lst = wiki();
-var id = 0;
-var delta = 1;
-
 function wiki()
 {
 if (window.location.href != "http://memorialab.info/blog/main/") {
