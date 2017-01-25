@@ -53,29 +53,24 @@
         </div>
         <div class="span2 pull-right">
         <div class="affix">
-        <!--<button type="button" class="btn btn-primary">prev</button>-->
-        
-<div class="panel-footer row"><!-- panel-footer -->
-    <div class="span1 text-left">
-        <div class="previous">
-          <button type="button" class="btn btn-primary" onClick="notes(id-1, lst);">
+          <div class="panel-footer row"><!-- panel-footer -->
+            <div class="span1 text-left">
+              <div class="previous">
+              <button name = "prev" type="button" class="btn btn-primary" onClick="notes(-1, lst)" value = 0 >
               <span class="glyphicon glyphicon-chevron-left">prev</span>
-          </button>
-        </div>
-    </div>
-    <div class="span1 text-right">   
-        <div class="next">
-          <button type="button" class="btn btn-primary" onClick="notes(id+1, lst)">
+              </button>
+              </div>
+            </div>
+            <div class="span1 text-right">   
+              <div class="next">
+              <button name = "next" type="button" class="btn btn-primary" onClick="notes(1, lst)" value = 0>
               <span class="glyphicon glyphicon-chevron-right">next</span>
-          </button>
+              </button>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-
         <div class="note">
         <script>
-        var dct, lst = wiki();
-        var id = 0
         notes(id, lst);
         </script>
         </div>

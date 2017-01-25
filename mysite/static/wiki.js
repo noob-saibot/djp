@@ -1,3 +1,7 @@
+var dct, lst = wiki();
+var id = 0;
+var delta = 1;
+
 function wiki()
 {
 if (window.location.href != "http://memorialab.info/blog/main/") {
@@ -20,11 +24,12 @@ function affix_setter(set, time) {
 
 
 function notes(index, values) {
-  console.log(values);
+  index = parseInt(document.getElementsByName("next")[0].value, 10) + index;
   if (values.length != 0) {
-  affix_setter(values[index], 0);
-  console.log(index)
-  window.id = index}
+    if (index < 0) {index += values.length;}
+    else if (index >= values.length) {index -= values.length;}
+    affix_setter(values[index], 0);
+    document.getElementsByName("next")[0].value = index;}
   else {document.getElementsByClassName('affix')[0].innerHTML = ""}
                     }
 
