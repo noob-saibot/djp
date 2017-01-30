@@ -14,9 +14,11 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import PIL
 from unipath import Path
+import ast
+access_conf = ast.literal_eval(','.join(open('pass.conf').readlines()).replace('\n',''))
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-#BASE_DIR         =  Path(__file__).ancestor(3)
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -24,7 +26,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3i8o%m)(9d8p*aq1ealfykcsvpjjhvjzx5ac8_jk!6fbtx(ixw'
+SECRET_KEY = access_conf['Secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -92,7 +94,7 @@ DATABASES = { #'default':
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'memoria',
         'USER': 'beast',
-        'PASSWORD': open(os.path.join(BASE_DIR, 'pass.conf')).read(),
+        'PASSWORD': access_conf['db_pass'],
         'HOST': '192.168.1.3',
         'PORT': '',
     }
@@ -139,7 +141,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Disqus
-DISQUS_API_KEY = 'lQ0iiE2a34YIVrbJWNksUprKZebe8D95S9EWFRNgJloTT7nzAGLrJ6W0uxS0UnBJ'
+DISQUS_API_KEY = access_conf['Disq_Key']
 DISQUS_WEBSITE_SHORTNAME = 'memorialab-info'
 
 #Site id
