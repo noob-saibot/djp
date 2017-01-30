@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'jquery',
-    'highcharts',
 ]
 
 MIDDLEWARE = [
@@ -162,11 +161,11 @@ CKEDITOR_IMAGE_BACKEND = PIL
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        # 'extraPlugins': ['eqneditor',]
         'extraPlugins': ','.join(
             [
                 'eqneditor',
                 'spoiler',
+                'codesnippet',
             ]),
     },
 }
