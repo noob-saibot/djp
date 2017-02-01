@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from snippets import views
 
-from snippets.views import SnippetViewSet, UserViewSet, api_root
+from snippets.views import SnippetViewSet, UserViewSet, api_root, WikiViewSet
 from rest_framework import renderers
 
 snippet_list = SnippetViewSet.as_view({
@@ -25,6 +25,14 @@ user_detail = UserViewSet.as_view({
     'get': 'retrieve'
 })
 
+wiki_list = UserViewSet.as_view({
+'get': 'list'
+})
+
+wiki_detail = WikiViewSet.as_view({
+'get': 'retrieve'
+})
+
 
 # API endpoints
 #urlpatterns = format_suffix_patterns([
@@ -44,6 +52,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
 router.register(r'users', views.UserViewSet)
+router.register(r'wiki_notes', views.WikiViewSet)
 
 # The API URLs are now determined automatically by the router.
 # Additionally, we include the login URLs for the browsable API.

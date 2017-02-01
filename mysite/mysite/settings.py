@@ -185,3 +185,10 @@ CKEDITOR_CONFIGS = {
             ]),
     },
 }
+
+#######
+#Rest api
+#######
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}

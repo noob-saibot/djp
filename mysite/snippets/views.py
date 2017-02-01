@@ -2,20 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer
-from rest_framework import generics
-from rest_framework import permissions
+from snippets.serializers import SnippetSerializer, WikiSerializer, UserSerializer
+from rest_framework import generics, permissions
 from snippets.permissions import IsOwnerOrReadOnly
 from rest_framework import renderers
 from rest_framework.response import Response
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import detail_route, api_view
 from django.contrib.auth.models import User
-from snippets.serializers import UserSerializer
 from rest_framework import viewsets
-from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
-import blog.wiki_parser as wiki
-from blog.models import Post
+from blog.models import Post, WikiInform
+import django_filters.rest_framework
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -25,12 +22,19 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAdminUser,)
 
+class WikiViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = WikiInform.objects.all()
+    serializer_class = WikiSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_fields = ('post_id',)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
         'users': reverse('user-list', request=request, format=format),
         'snippets': reverse('snippet-list', request=request, format=format),
-        'wiki': reverse('posts', request=request, format=format),
+        'wiki_notes_id': reverse('wiki-list', request=request, format=format),
         'charts': reverse('chart-list', request=request, format=format),
     })
 
