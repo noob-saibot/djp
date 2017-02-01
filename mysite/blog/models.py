@@ -21,3 +21,15 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/blog/main/%i/" % self.id
+
+class WikiInform(models.Model):
+    title = models.CharField(max_length=255)
+    post_id = models.CharField(max_length=255)
+    datetime = models.DateTimeField(u'Date')
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+    def __unicode__(self):
+        return self.title

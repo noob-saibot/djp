@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import *
 from django.conf.urls.static import static
 from django.conf import settings
-#from graphs.py import BarView
+from django.conf.urls import include
 
 ######
 # Redirect
@@ -36,4 +36,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^$', RedirectView.as_view(url='/blog/')),
+    url(r'^api/', include('snippets.urls')),
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
 ]

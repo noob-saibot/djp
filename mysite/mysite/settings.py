@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'jquery',
+    'rest_framework',
+    'snippets.apps.SnippetsConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +140,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
 #Disqus
 DISQUS_API_KEY = access_conf['Disq_Key']
@@ -148,7 +150,9 @@ DISQUS_WEBSITE_SHORTNAME = 'memorialab-info'
 SITE_ID = 1
 
 #Add static
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, '../static')
+STATIC_ROOT = '/home/beast/djp/mysite/assets/'
+STATIC_URL = '/static/'
 
 #STATIC_ROOT      =  BASE_DIR.child('static')
 STATICFILES_DIRS = (
