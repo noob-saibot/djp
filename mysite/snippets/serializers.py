@@ -21,7 +21,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'id', 'username', 'snippets')
 
 class WikiSerializer(serializers.HyperlinkedModelSerializer):
-    #notes = serializers.HyperlinkedRelatedField(many=True, view_name='wiki_notes', read_only=True)
+    #content = serializers.HyperlinkedRelatedField(many=True, view_name='wiki_notes', read_only=True)
 
     class Meta:
         model = WikiInform
