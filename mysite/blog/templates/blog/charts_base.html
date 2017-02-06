@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+{% load static %}
+<head>
+    <title>Charts</title>
+    <script src={% static "chart.js/dist/Chart.bundle.js" %}></script>
+    <script src={% static "chart.js/samples/utils.js" %}></script>
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+{% block content %}Empty{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+{% extends 'blog/charts_base.html' %}
+{% block content %}
+{% for charts in object_list %}
+            <p>{{ charts.datetime }}</p>
+            <h2><a href="{{ charts.get_absolute_url }}">{{ charts.title }}</a></h2>
+            <p>{{ charts.type }}</p>            
+            <p>{{ charts.data }}</p>
+    {% empty %}
+    <p>Nothing</p>
+    {% endfor %}
+{% endblock %}

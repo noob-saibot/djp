@@ -1,7 +1,6 @@
 from django.contrib import admin
-from blog.models import Post, WikiInform
+from blog.models import Post, WikiInform, Charts
 from django import forms
-#from redactor.widgets import RedactorEditor
 from ckeditor.widgets import CKEditorWidget
 import blog.wiki_parser as wiki
 
@@ -25,5 +24,10 @@ class WikiAdmin(admin.ModelAdmin):
                 notes = WikiInform(title=i.title, post_id=i.id, content=wiki.Inform(i.content).links(), datetime=i.datetime)
                 notes.save()
 
+class ChartsAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(WikiInform, WikiAdmin)
+admin.site.register(Charts, ChartsAdmin)

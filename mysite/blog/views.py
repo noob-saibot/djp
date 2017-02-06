@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from blog.models import Post, WikiInform
+from blog.models import Post, WikiInform, Charts
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse, JsonResponse
 from django.views import View
@@ -27,6 +27,12 @@ class Tree(TemplateView):
 class WikiPostDetail(ListView):
     model = WikiInform
 
+class ChartsDetail(DetailView):
+    model = Charts
+
+class ChartsList(ListView):
+    model = Charts
+
 @never_cache
 @csrf_exempt
 def Notes(request):
@@ -34,8 +40,6 @@ def Notes(request):
         id = request.GET.get('id')
         W = wiki.Inform(Post.objects.get(pk=id).content)
         try:
-            #return JsonResponse({'%s'%str(Post.objects.get(pk=id).content):'bar'})
             return JsonResponse(W.links())
         except:
             pass
-
