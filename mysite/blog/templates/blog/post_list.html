@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-    {% for post in object_list %}
+    {% for post in object_list reversed %}
         {% if not post.is_draft %}
             <p>{{ post.datetime }}</p>
             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
