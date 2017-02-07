@@ -4,6 +4,12 @@
     <p>{{ post.datetime }}</p>
     <h2>{{ post.title }}</h2>
     <p>{{post.content|safe}}</p>
+    <script> 
+        var iframe = document.getElementsByTagName('iframe'); 
+        for (var i = 0; i < iframe.length; i++) {iframe[i].onload = function resizeIframe() {
+        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+        }}
+    </script>
 <p>
     {% load disqus_tags %}
     {% disqus_dev %}

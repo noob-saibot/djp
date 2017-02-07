@@ -301,7 +301,8 @@ a:focus {
 }
 
 .span10 {
-  width: 780px;
+  /*width: 780px;*/
+  width: 75%;
 }
 
 .span9 {
@@ -345,7 +346,8 @@ a:focus {
 }
 
 .span1 {
-  width: 60px;
+  /*width: 60px;*/
+  width: 40%;
 }
 
 .offset12 {

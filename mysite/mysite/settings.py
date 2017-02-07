@@ -29,7 +29,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = access_conf['Secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -182,6 +182,7 @@ CKEDITOR_CONFIGS = {
                 'eqneditor',
                 'spoiler',
                 'codesnippet',
+                'iframe',
             ]),
     },
 }
